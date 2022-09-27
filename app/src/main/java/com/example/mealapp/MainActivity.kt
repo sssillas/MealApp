@@ -1,9 +1,12 @@
 package com.example.mealapp
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mealapp.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
@@ -18,4 +21,6 @@ class MainActivity : AppCompatActivity() {
                 .commitNow()
         }
     }
+
+
 }

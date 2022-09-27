@@ -15,6 +15,7 @@ class MainViewModel(
     private val getCategoriesUseCase: GetCategoriesUseCase
 ) : ViewModel() {
 
+    //A forma de passar os dados para o fragment ou activity é o livedata
     private val _categories = MutableLiveData<List<Category>>()
     val categories = _categories as LiveData<List<Category>>
 
@@ -34,5 +35,9 @@ class MainViewModel(
             val categoryList = getCategoriesUseCase()
             _categories.value = categoryList
         }*/
+
+
     }
+
+
 }

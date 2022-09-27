@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
+import com.example.mealapp.CategoryDetailActivity
 import com.example.mealapp.R
 import com.example.mealapp.databinding.FragmentMainBinding
 import com.example.mealapp.model.Category
@@ -37,12 +38,15 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //val viewModel2: MainViewModel = ViewModelProvider
         viewModel.categories.observe( viewLifecycleOwner, Observer { listCategoryUiModel ->
             //val t = Toast.makeText(view,"listCategoryUiModel.toString()",Toast.LENGTH_LONG)
             Toast.makeText(activity,listCategoryUiModel.toString(),Toast.LENGTH_LONG).show()
             displayMeals(listCategoryUiModel)
            Log.w("DDDDD",listCategoryUiModel.toString())
         })
+
+
 
         viewModel.getCategories()
     }
@@ -56,7 +60,10 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding=FragmentMainBinding.inflate(inflater,container,false)
-        mealAdapter = MealAdapter()
+        mealAdapter = MealAdapter{
+            val intent = CategoryDetailActivity.getStartIntent(requireContext(),it.name)
+            startActivity(intent)
+        }
         _binding.recyclerFeed.adapter = mealAdapter
 
         return _binding.root

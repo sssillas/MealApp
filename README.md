@@ -27,3 +27,21 @@ DICA DE NOME DESSA CLASSE: COLOCA O NOME DO PROJETO SEGUIDO DE Application
 CRIE UMA CLASSE CHAMADA SERVICE ONDE IRÁ INICIALIZAR O RETROFIT
 
 CRIE UM SINGLE NO MAINMODULE INJETANDO O SERVICE
+
+
+ORGANIZAÇÃO DE PACOTES
+
+-presentation (Activities, Models) - Toda parte de visualização em que o usuário está interagindo
+    /books
+
+-data (Classe de dados) - RETROFIT, RESPONSE, VIEWMODEL
+    -model
+    -response (ANOTAÇÔES DO RETROFIT)
+
+A função do viewModel é gerenciar od dados da UI(Activities) e fazer a ponte para as demais camadas do aplicativo
+
+if(it != null) 
+Pode ser trocado por
+it?.let{
+
+}
